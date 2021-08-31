@@ -1,0 +1,196 @@
+{
+	"info": {
+		"_postman_id": "0e9dde0f-dd40-4452-95ad-4d3a972dab7a",
+		"name": "Zombie sns",
+		"description": "Proper API hits for Zombie-SNS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Survivors ( create )",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"survivor\":{\n\t\t\"name\": \"John\",\n\t\t\"age\": 10,\n\t\t\"gender\": \"male\",\n\t\t\"longitude\": \"0.22238e2\",\n\t\t\"latitude\": \"0.222e2\",\n\t\t\"inventory_items_attributes\": [\n\t\t\t{\n\t\t\t\t\"id\": \"1\",\n\t\t\t\t\"item_id\":\t\"1\",\n\t\t\t\t\"quantity\": \"5\"\n\t\t\t}\n\t\t]\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/survivors",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"survivors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Survivors ( Update )",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"survivor\":{\n\t\t\"longitude\": \"0.22238e2\",\n\t\t\"latitude\": \"0.222e2\"\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/survivors/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"survivors",
+						"1"
+					]
+				},
+				"description": "The api will not save the information other than longitude, latitude in case provided. Let say we have the following object. It will just update the longitude and latitude, other params are un-permitted.\n{\n\t\"survivor\":{\n\t\t\"name\": \"John\",\n\t\t\"age\": 10,\n\t\t\"gender\": \"male\",\n\t\t\"longitude\": \"0.22238e2\",\n\t\t\"latitude\": \"0.222e2\",\n\t\t\"inventory_items_attributes\": [\n\t\t\t{\n\t\t\t\t\"id\": \"1\",\n\t\t\t\t\"item_id\":\t\"1\",\n\t\t\t\t\"quantity\": \"5\"\n\t\t\t}\n\t\t]\n\t}\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "Report Infected Users",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"report\":{\n\t\t\"survivor_id\": \"1\",\n\t\t\"reporter_id\": \"2\"\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/infection_reports",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"infection_reports"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Barter trade",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"trade\":{\n\t\t\"buyer_id\": \"1\",\n\t\t\"receiver_id\": \"2\",\n\t\t\"buyer_items\": [\n\t\t\t{\n\t\t\t\t\"item_id\": 1,\n\t\t\t\t\"quantity\": 3\n\t\t\t}\n\t\t],\n\t\t\"receiver_items\": [\n\t\t\t{\n\t\t\t\t\"item_id\": 3,\n\t\t\t\t\"quantity\": 1\n\t\t\t}\n\t\t]\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/trades",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"trades"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reports",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"survivor\":{\n\t\t\"name\": \"John\",\n\t\t\"age\": 10,\n\t\t\"gender\": \"male\",\n\t\t\"longitude\": \"0.22238e2\",\n\t\t\"latitude\": \"0.222e2\",\n\t\t\"inventory_items_attributes\": [\n\t\t\t{\n\t\t\t\t\"id\": \"1\",\n\t\t\t\t\"item_id\":\t\"1\",\n\t\t\t\t\"quantity\": \"5\"\n\t\t\t}\n\t\t]\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/reports",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"reports"
+					]
+				},
+				"description": "This api return a returns an object incorporating the statistics for the following\n1- infected_survivors_percentage\n2- non_infected_survivors_percentage\n3- resource_average\n4- points_lost"
+			},
+			"response": []
+		}
+	]
+}
