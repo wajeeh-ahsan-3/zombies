@@ -8,7 +8,7 @@ Here are the few steps start the application
 6) Server Instantiation
   `Please run yarn install --check-files to update.`
   Now run `rails s`
-7) Usage
+7) Usage => 
   Api calls file added in the project `/vendor/zombie.postman_collection.json` folder in json format you can use in postman 
   
   -> For Survivors
